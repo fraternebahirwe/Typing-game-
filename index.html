@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speed Typing Pro</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+
+</head>
+<body>
+
+  <main class="app">
+    <div class="badge">⚡ SPEED TYPING PRO</div>
+
+    <h1>Tape plus vite</h1>
+    <p class="subtitle">Entraîne tes doigts. Bats tes records. Deviens légende.</p>
+
+    <section class="game-card">
+
+      <div class="mode-box">
+        <button class="mode active" data-mode="words">✦ Mots</button>
+        <button class="mode" data-mode="phrases">◈ Phrases</button>
+      </div>
+
+      <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <div class="word-box">
+        <span id="word">rapide</span>
+      </div>
+
+      <div class="input-row">
+        <input type="text" id="input" placeholder="Tape ici..." autocomplete="off" />
+        <button id="validateBtn">Valider →</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <h2 id="score">0</h2>
+          <p>BONS</p>
+        </div>
+
+        <div class="stat">
+          <h2 id="total">0</h2>
+          <p>TOTAL</p>
+        </div>
+
+        <div class="stat">
+          <h2 id="precision">—</h2>
+          <p>PRÉCISION</p>
+        </div>
+      </div>
+
+      <button class="share-btn" id="shareBtn">✉️ Partager mon score</button>
+
+    </section>
+
+    <footer>
+      Fait avec ❤️ par <span href="git">Fraterne Bahirwe</span>
+    </footer>
+  </main>
+
+</body>
+</html>
