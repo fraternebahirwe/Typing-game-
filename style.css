@@ -1,64 +1,69 @@
 ```css
 /* ==========================================================================
    SPEED TYPING PRO
-   Design System & Global Styles
+   Main Stylesheet
    ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   1. DESIGN TOKENS
-   -------------------------------------------------------------------------- */
+
+/* ==========================================================================
+   1. DESIGN SYSTEM
+   ========================================================================== */
 
 :root {
   /* Colors */
-  --color-bg: #050611;
-  --color-surface: #080914;
-  --color-surface-dark: #03040a;
+  --bg: #050611;
+  --surface: #080914;
+  --surface-dark: #03040a;
 
-  --color-white: #ffffff;
-  --color-text: #f5f7ff;
-  --color-muted: #9ca3b7;
-  --color-placeholder: #536079;
+  --white: #ffffff;
+  --text: #f5f7ff;
+  --muted: #9ca3b7;
+  --placeholder: #536079;
 
-  --color-purple: #8b5cf6;
-  --color-purple-light: #c8b6ff;
-  --color-pink: #ff4ecd;
-  --color-pink-dark: #e31aa5;
-  --color-red: #ff3b59;
+  --purple: #8b5cf6;
+  --purple-light: #c8b6ff;
+
+  --pink: #ff4ecd;
+  --pink-light: #ff7adf;
+  --pink-dark: #e31aa5;
+
+  --red: #ff3b59;
 
   /* Gradients */
-  --gradient-primary: linear-gradient(
-    135deg,
-    #8b35e8,
-    #e31aa5
-  );
+  --gradient-primary:
+    linear-gradient(135deg, #8b35e8, #e31aa5);
 
-  --gradient-title: linear-gradient(
-    90deg,
-    #c8b6ff,
-    #ff7adf
-  );
+  --gradient-title:
+    linear-gradient(90deg, #c8b6ff, #ff7adf);
 
-  --gradient-progress: linear-gradient(
-    90deg,
-    #8b5cf6,
-    #ff4ecd
-  );
+  --gradient-progress:
+    linear-gradient(90deg, #8b5cf6, #ff4ecd);
 
   /* Borders */
-  --border-light: rgba(255, 255, 255, 0.12);
-  --border-medium: rgba(255, 255, 255, 0.22);
-  --border-purple: rgba(139, 92, 246, 0.55);
+  --border-light:
+    rgba(255, 255, 255, 0.12);
+
+  --border-medium:
+    rgba(255, 255, 255, 0.22);
+
+  --border-purple:
+    rgba(139, 92, 246, 0.55);
 
   /* Radius */
   --radius-sm: 12px;
   --radius-md: 15px;
   --radius-lg: 28px;
-  --radius-pill: 999px;
+  --radius-full: 999px;
 
   /* Shadows */
-  --shadow-card: 0 0 60px rgba(139, 92, 246, 0.18);
-  --shadow-button: 0 0 25px rgba(227, 26, 165, 0.4);
-  --shadow-input: 0 0 18px rgba(255, 59, 89, 0.25);
+  --shadow-card:
+    0 0 60px rgba(139, 92, 246, 0.18);
+
+  --shadow-pink:
+    0 0 25px rgba(227, 26, 165, 0.4);
+
+  --shadow-input:
+    0 0 18px rgba(255, 59, 89, 0.25);
 
   /* Transitions */
   --transition-fast: 0.2s ease;
@@ -66,9 +71,9 @@
 }
 
 
-/* --------------------------------------------------------------------------
+/* ==========================================================================
    2. RESET
-   -------------------------------------------------------------------------- */
+   ========================================================================== */
 
 *,
 *::before,
@@ -92,7 +97,7 @@ body {
     Helvetica,
     sans-serif;
 
-  color: var(--color-text);
+  color: var(--text);
 
   background:
     radial-gradient(
@@ -110,7 +115,7 @@ body {
       rgba(255, 179, 71, 0.15),
       transparent 25%
     ),
-    var(--color-bg);
+    var(--bg);
 
   display: flex;
   justify-content: center;
@@ -122,9 +127,9 @@ body {
 }
 
 
-/* --------------------------------------------------------------------------
-   3. BACKGROUND EFFECT
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   3. BACKGROUND STARS
+   ========================================================================== */
 
 body::before {
   content: "";
@@ -145,6 +150,8 @@ body::before {
 
   pointer-events: none;
 
+  z-index: 0;
+
   animation: stars 20s linear infinite;
 }
 
@@ -159,9 +166,9 @@ body::before {
 }
 
 
-/* --------------------------------------------------------------------------
-   4. MAIN APPLICATION
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   4. APPLICATION CONTAINER
+   ========================================================================== */
 
 .app {
   width: 100%;
@@ -176,9 +183,9 @@ body::before {
 }
 
 
-/* --------------------------------------------------------------------------
+/* ==========================================================================
    5. HEADER
-   -------------------------------------------------------------------------- */
+   ========================================================================== */
 
 .app-header {
   margin-bottom: 0;
@@ -186,30 +193,34 @@ body::before {
 
 .badge {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
   padding: 12px 24px;
 
-  border-radius: var(--radius-pill);
+  margin-bottom: 20px;
 
-  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-full);
 
-  border: 1px solid var(--border-light);
+  background:
+    rgba(255, 255, 255, 0.06);
 
-  color: var(--color-purple-light);
+  border:
+    1px solid var(--border-light);
+
+  color: var(--purple-light);
 
   font-size: 12px;
   font-weight: 800;
 
   letter-spacing: 4px;
 
-  margin-bottom: 20px;
-
   box-shadow:
     0 0 20px rgba(139, 92, 246, 0.08);
 
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 h1 {
@@ -220,13 +231,15 @@ h1 {
   line-height: 1.1;
 
   font-weight: 800;
+
   letter-spacing: -1px;
 
   background: var(--gradient-title);
 
-  -webkit-background-clip: text;
   background-clip: text;
+  -webkit-background-clip: text;
 
+  color: transparent;
   -webkit-text-fill-color: transparent;
 }
 
@@ -238,29 +251,31 @@ h1 {
   color: #aab0c7;
 
   font-size: 16px;
+
   line-height: 1.6;
 }
 
 
-/* --------------------------------------------------------------------------
+/* ==========================================================================
    6. GAME CARD
-   -------------------------------------------------------------------------- */
+   ========================================================================== */
 
 .game-card {
   width: 100%;
 
   padding: 32px;
 
+  border:
+    1px solid var(--border-light);
+
   border-radius: var(--radius-lg);
 
   background:
     linear-gradient(
       145deg,
-      rgba(15, 16, 32, 0.92),
+      rgba(15, 16, 32, 0.94),
       rgba(5, 6, 17, 0.88)
     );
-
-  border: 1px solid var(--border-light);
 
   box-shadow: var(--shadow-card);
 
@@ -269,23 +284,26 @@ h1 {
 }
 
 
-/* --------------------------------------------------------------------------
-   7. GAME MODE SELECTOR
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   7. GAME MODES
+   ========================================================================== */
 
 .mode-box {
   display: flex;
+
   gap: 8px;
 
   padding: 7px;
 
   margin-bottom: 35px;
 
+  border:
+    1px solid var(--border-light);
+
   border-radius: var(--radius-md);
 
-  background: rgba(3, 4, 10, 0.8);
-
-  border: 1px solid var(--border-light);
+  background:
+    rgba(3, 4, 10, 0.85);
 }
 
 .mode {
@@ -293,38 +311,44 @@ h1 {
 
   min-height: 48px;
 
+  padding: 12px;
+
   border: none;
+
   border-radius: var(--radius-sm);
 
   background: transparent;
 
-  color: var(--color-muted);
+  color: var(--muted);
+
+  font: inherit;
 
   font-size: 15px;
+
   font-weight: 700;
 
   cursor: pointer;
 
   transition:
-    color var(--transition-fast),
     background var(--transition-fast),
+    color var(--transition-fast),
     transform var(--transition-fast),
     box-shadow var(--transition-fast);
 }
 
 .mode:hover:not(.active) {
-  color: var(--color-white);
+  color: var(--white);
 
-  background: rgba(255, 255, 255, 0.05);
+  background:
+    rgba(255, 255, 255, 0.05);
 }
 
 .mode.active {
-  color: var(--color-white);
+  color: var(--white);
 
   background: var(--gradient-primary);
 
-  box-shadow:
-    0 0 25px rgba(227, 26, 165, 0.4);
+  box-shadow: var(--shadow-pink);
 }
 
 .mode:active {
@@ -332,32 +356,35 @@ h1 {
 }
 
 .mode:focus-visible {
-  outline: 2px solid var(--color-pink);
+  outline: 2px solid var(--pink);
+
   outline-offset: 3px;
 }
 
 
-/* --------------------------------------------------------------------------
+/* ==========================================================================
    8. PROGRESS BAR
-   -------------------------------------------------------------------------- */
+   ========================================================================== */
 
 .progress {
   width: 100%;
+
   height: 5px;
 
   margin-bottom: 25px;
 
   overflow: hidden;
 
-  border-radius: var(--radius-pill);
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
 
-  background: rgba(3, 4, 10, 0.9);
+  border-radius: var(--radius-full);
 
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface-dark);
 }
 
 .progress-bar {
-  width: 0%;
+  width: 0;
   height: 100%;
 
   border-radius: inherit;
@@ -368,26 +395,28 @@ h1 {
     0 0 12px rgba(255, 78, 205, 0.45);
 
   transition:
-    width 0.3s ease;
+    width var(--transition-normal);
 }
 
 
-/* --------------------------------------------------------------------------
+/* ==========================================================================
    9. WORD DISPLAY
-   -------------------------------------------------------------------------- */
+   ========================================================================== */
 
 .word-box {
   min-height: 100px;
 
-  margin-bottom: 24px;
-
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   padding: 20px;
 
-  border: 1px solid var(--border-purple);
+  margin-bottom: 24px;
+
+  border:
+    1px solid var(--border-purple);
 
   border-radius: var(--radius-md);
 
@@ -403,21 +432,25 @@ h1 {
 }
 
 .word-box p {
+  max-width: 100%;
+
+  color: var(--white);
+
   font-size: clamp(20px, 5vw, 24px);
 
   font-weight: 800;
 
+  line-height: 1.4;
+
   letter-spacing: 1px;
 
-  color: var(--color-white);
-
-  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 
-/* --------------------------------------------------------------------------
-   10. WORD ANIMATIONS
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   10. WORD ANIMATION
+   ========================================================================== */
 
 .pop {
   animation: pop 0.25s ease;
@@ -426,14 +459,311 @@ h1 {
 @keyframes pop {
   from {
     opacity: 0;
-    transform: scale(0.85);
+
+    transform:
+      scale(0.85)
+      translateY(5px);
   }
 
   to {
     opacity: 1;
-    transform: scale(1);
+
+    transform:
+      scale(1)
+      translateY(0);
   }
 }
+
+
+/* ==========================================================================
+   11. INPUT FORM
+   ========================================================================== */
+
+.input-row {
+  display: flex;
+
+  gap: 10px;
+
+  margin-bottom: 24px;
+}
+
+.input-row input {
+  flex: 1;
+
+  min-width: 0;
+
+  width: 100%;
+
+  padding: 17px 18px;
+
+  border:
+    2px solid var(--red);
+
+  border-radius: var(--radius-md);
+
+  background:
+    var(--surface-dark);
+
+  color: var(--white);
+
+  font: inherit;
+
+  font-size: 16px;
+
+  outline: none;
+
+  box-shadow: var(--shadow-input);
+
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.input-row input::placeholder {
+  color: var(--placeholder);
+
+  font-weight: 600;
+}
+
+.input-row input:hover {
+  border-color:
+    rgba(255, 78, 205, 0.7);
+}
+
+.input-row input:focus {
+  border-color: var(--pink);
+
+  box-shadow:
+    0 0 0 3px rgba(255, 78, 205, 0.1),
+    0 0 25px rgba(255, 78, 205, 0.45);
+}
+
+
+/* ==========================================================================
+   12. VALIDATE BUTTON
+   ========================================================================== */
+
+#validateBtn {
+  flex-shrink: 0;
+
+  padding: 0 23px;
+
+  border: none;
+
+  border-radius: var(--radius-md);
+
+  background: var(--gradient-primary);
+
+  color: var(--white);
+
+  font: inherit;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow: var(--shadow-pink);
+
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    filter var(--transition-fast);
+}
+
+#validateBtn:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.08);
+
+  box-shadow:
+    0 8px 30px rgba(227, 26, 165, 0.35);
+}
+
+#validateBtn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+#validateBtn:focus-visible {
+  outline: 2px solid var(--white);
+
+  outline-offset: 3px;
+}
+
+#validateBtn:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.5;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+
+/* ==========================================================================
+   13. STATISTICS
+   ========================================================================== */
+
+.stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 11px;
+
+  margin-bottom: 24px;
+}
+
+.stat {
+  min-width: 0;
+
+  padding: 20px 10px;
+
+  border:
+    1px solid var(--border-light);
+
+  border-radius: var(--radius-md);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.015)
+    );
+
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.stat:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(139, 92, 246, 0.35);
+}
+
+.stat h2 {
+  margin-bottom: 6px;
+
+  color: #d633ff;
+
+  font-size: clamp(26px, 7vw, 32px);
+
+  line-height: 1;
+
+  font-weight: 800;
+}
+
+.stat p {
+  color: var(--muted);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* ==========================================================================
+   14. SHARE BUTTON
+   ========================================================================== */
+
+.share-btn {
+  width: 100%;
+
+  padding: 16px;
+
+  border:
+    1px solid var(--border-medium);
+
+  border-radius: 13px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  color: var(--white);
+
+  font: inherit;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.share-btn:hover {
+  background:
+    rgba(255, 255, 255, 0.14);
+
+  border-color:
+    rgba(255, 255, 255, 0.35);
+
+  transform: translateY(-2px);
+}
+
+.share-btn:active {
+  transform: translateY(0);
+}
+
+.share-btn:focus-visible {
+  outline: 2px solid var(--pink);
+
+  outline-offset: 3px;
+}
+
+
+/* ==========================================================================
+   15. FOOTER
+   ========================================================================== */
+
+footer {
+  margin-top: 30px;
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+footer a {
+  color: var(--pink);
+
+  text-decoration: none;
+
+  transition:
+    color var(--transition-fast),
+    text-shadow var(--transition-fast);
+}
+
+footer a:hover {
+  color: var(--pink-light);
+
+  text-shadow:
+    0 0 12px rgba(255, 78, 205, 0.5);
+}
+
+footer a:focus-visible {
+  outline: 2px solid var(--pink);
+
+  outline-offset: 3px;
+}
+
+
+/* ==========================================================================
+   16. GAME FEEDBACK
+   ========================================================================== */
 
 .correct {
   animation: correct 0.3s ease;
@@ -441,7 +771,10 @@ h1 {
 
 @keyframes correct {
   50% {
-    transform: scale(1.04);
+    transform: scale(1.02);
+
+    border-color:
+      rgba(34, 197, 94, 0.5);
   }
 }
 
@@ -464,259 +797,9 @@ h1 {
 }
 
 
-/* --------------------------------------------------------------------------
-   11. INPUT AREA
-   -------------------------------------------------------------------------- */
-
-.input-row {
-  display: flex;
-  gap: 10px;
-
-  margin-bottom: 24px;
-}
-
-.input-row input {
-  min-width: 0;
-  width: 100%;
-
-  padding: 17px 18px;
-
-  border: 2px solid var(--color-red);
-  border-radius: var(--radius-md);
-
-  background: var(--color-surface-dark);
-
-  color: var(--color-white);
-
-  font: inherit;
-  font-size: 16px;
-
-  outline: none;
-
-  box-shadow: var(--shadow-input);
-
-  transition:
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast);
-}
-
-.input-row input::placeholder {
-  color: var(--color-placeholder);
-  font-weight: 600;
-}
-
-.input-row input:hover {
-  border-color: rgba(255, 78, 205, 0.7);
-}
-
-.input-row input:focus {
-  border-color: var(--color-pink);
-
-  box-shadow:
-    0 0 0 3px rgba(255, 78, 205, 0.1),
-    0 0 25px rgba(255, 78, 205, 0.45);
-}
-
-
-/* --------------------------------------------------------------------------
-   12. VALIDATE BUTTON
-   -------------------------------------------------------------------------- */
-
-#validateBtn {
-  flex-shrink: 0;
-
-  padding: 0 23px;
-
-  border: none;
-  border-radius: var(--radius-md);
-
-  background: var(--gradient-primary);
-
-  color: var(--color-white);
-
-  font: inherit;
-  font-size: 15px;
-  font-weight: 800;
-
-  cursor: pointer;
-
-  box-shadow: var(--shadow-button);
-
-  transition:
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast),
-    filter var(--transition-fast);
-}
-
-#validateBtn:hover {
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 8px 30px rgba(227, 26, 165, 0.35);
-}
-
-#validateBtn:active {
-  transform: translateY(0) scale(0.98);
-}
-
-#validateBtn:focus-visible {
-  outline: 2px solid var(--color-white);
-  outline-offset: 3px;
-}
-
-
-/* --------------------------------------------------------------------------
-   13. STATISTICS
-   -------------------------------------------------------------------------- */
-
-.stats {
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 11px;
-
-  margin-bottom: 24px;
-}
-
-.stat {
-  min-width: 0;
-
-  padding: 20px 10px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.04),
-      rgba(255, 255, 255, 0.015)
-    );
-
-  border-radius: var(--radius-md);
-
-  border: 1px solid var(--border-light);
-
-  transition:
-    transform var(--transition-fast),
-    border-color var(--transition-fast);
-}
-
-.stat:hover {
-  transform: translateY(-2px);
-
-  border-color:
-    rgba(139, 92, 246, 0.35);
-}
-
-.stat h2 {
-  margin-bottom: 5px;
-
-  color: #d633ff;
-
-  font-size: clamp(26px, 7vw, 32px);
-
-  line-height: 1;
-
-  font-weight: 800;
-}
-
-.stat p {
-  color: var(--color-muted);
-
-  font-size: 10px;
-  font-weight: 800;
-
-  letter-spacing: 1.5px;
-}
-
-
-/* --------------------------------------------------------------------------
-   14. SHARE BUTTON
-   -------------------------------------------------------------------------- */
-
-.share-btn {
-  width: 100%;
-
-  padding: 16px;
-
-  border: 1px solid var(--border-medium);
-  border-radius: 13px;
-
-  background: rgba(255, 255, 255, 0.07);
-
-  color: var(--color-white);
-
-  font: inherit;
-  font-size: 15px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition:
-    background var(--transition-fast),
-    border-color var(--transition-fast),
-    transform var(--transition-fast);
-}
-
-.share-btn:hover {
-  background: rgba(255, 255, 255, 0.14);
-
-  border-color:
-    rgba(255, 255, 255, 0.35);
-
-  transform: translateY(-2px);
-}
-
-.share-btn:active {
-  transform: translateY(0);
-}
-
-.share-btn:focus-visible {
-  outline: 2px solid var(--color-pink);
-
-  outline-offset: 3px;
-}
-
-
-/* --------------------------------------------------------------------------
-   15. FOOTER
-   -------------------------------------------------------------------------- */
-
-footer {
-  margin-top: 30px;
-
-  color: var(--color-muted);
-
-  font-size: 13px;
-  font-weight: 600;
-}
-
-footer a {
-  color: var(--color-pink);
-
-  text-decoration: none;
-
-  transition:
-    color var(--transition-fast),
-    text-shadow var(--transition-fast);
-}
-
-footer a:hover {
-  color: #ff7adf;
-
-  text-shadow:
-    0 0 12px rgba(255, 78, 205, 0.5);
-}
-
-footer a:focus-visible {
-  outline: 2px solid var(--color-pink);
-
-  outline-offset: 3px;
-}
-
-
-/* --------------------------------------------------------------------------
-   16. ACCESSIBILITY
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   17. ACCESSIBILITY
+   ========================================================================== */
 
 .sr-only {
   position: absolute;
@@ -737,20 +820,21 @@ footer a:focus-visible {
 }
 
 
-/* --------------------------------------------------------------------------
-   17. REDUCED MOTION
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   18. REDUCED MOTION
+   ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    scroll-behavior: auto !important;
-
     animation-duration: 0.01ms !important;
+
     animation-iteration-count: 1 !important;
 
     transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
   }
 
   body::before {
@@ -759,9 +843,9 @@ footer a:focus-visible {
 }
 
 
-/* --------------------------------------------------------------------------
-   18. TABLET
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   19. TABLET
+   ========================================================================== */
 
 @media (max-width: 600px) {
   body {
@@ -769,7 +853,8 @@ footer a:focus-visible {
   }
 
   .app {
-    padding: 30px 16px;
+    padding:
+      30px 16px;
   }
 
   .game-card {
@@ -778,17 +863,18 @@ footer a:focus-visible {
 }
 
 
-/* --------------------------------------------------------------------------
-   19. MOBILE
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   20. MOBILE
+   ========================================================================== */
 
 @media (max-width: 480px) {
   .app {
-    padding: 25px 12px;
+    padding:
+      25px 12px;
   }
 
   .badge {
-    padding: 11px 18px;
+    padding: 10px 17px;
 
     font-size: 10px;
 
@@ -831,8 +917,14 @@ footer a:focus-visible {
     padding: 15px;
   }
 
+  /*
+   * Keep statistics in one row on mobile.
+   * Three columns are more appropriate for
+   * small numeric values.
+   */
   .stats {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+      repeat(3, 1fr);
 
     gap: 7px;
   }
@@ -853,9 +945,9 @@ footer a:focus-visible {
 }
 
 
-/* --------------------------------------------------------------------------
-   20. VERY SMALL DEVICES
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   21. VERY SMALL SCREENS
+   ========================================================================== */
 
 @media (max-width: 350px) {
   .game-card {
@@ -863,15 +955,20 @@ footer a:focus-visible {
   }
 
   .stats {
-    grid-template-columns: 1fr;
+    gap: 5px;
   }
 
   .stat {
-    padding: 14px;
+    padding:
+      14px 4px;
   }
 
   .stat h2 {
-    font-size: 26px;
+    font-size: 22px;
+  }
+
+  .stat p {
+    font-size: 7px;
   }
 }
 ```
