@@ -1,42 +1,149 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Speed Typing Pro</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js"></script>
 
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Speed Typing Pro — entraîne ta vitesse de frappe, améliore ta précision et bats tes records."
+  />
+
+  <meta name="theme-color" content="#050611" />
+
+  <title>Speed Typing Pro — Test de vitesse</title>
+
+  <link rel="stylesheet" href="./style.css" />
+
+  <script src="./script.js" defer></script>
 </head>
+
 <body>
 
   <main class="app">
-    <div class="badge">⚡ SPEED TYPING PRO</div>
 
-    <h1>Tape plus vite</h1>
-    <p class="subtitle">Entraîne tes doigts. Bats tes records. Deviens légende.</p>
+    <!-- Header -->
+    <header class="app-header">
 
-    <section class="game-card">
-
-      <div class="mode-box">
-        <button class="mode active" data-mode="words">✦ Mots</button>
-        <button class="mode" data-mode="phrases">◈ Phrases</button>
+      <div class="badge">
+        ⚡ SPEED TYPING PRO
       </div>
 
-      <div class="progress">
-        <div class="progress-bar" id="progressBar"></div>
+      <h1>Tape plus vite</h1>
+
+      <p class="subtitle">
+        Entraîne tes doigts. Bats tes records. Deviens légende.
+      </p>
+
+    </header>
+
+
+    <!-- Game -->
+    <section
+      class="game-card"
+      aria-label="Jeu de vitesse de frappe"
+    >
+
+      <!-- Game modes -->
+      <div
+        class="mode-box"
+        role="group"
+        aria-label="Mode de jeu"
+      >
+
+        <button
+          type="button"
+          class="mode active"
+          data-mode="words"
+          aria-pressed="true"
+        >
+          ✦ Mots
+        </button>
+
+        <button
+          type="button"
+          class="mode"
+          data-mode="phrases"
+          aria-pressed="false"
+        >
+          ◈ Phrases
+        </button>
+
       </div>
 
+
+      <!-- Progress -->
+      <div
+        class="progress"
+        role="progressbar"
+        aria-label="Progression"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+      >
+        <div
+          class="progress-bar"
+          id="progressBar"
+        ></div>
+      </div>
+
+
+      <!-- Current word -->
       <div class="word-box">
-        <span id="word">rapide</span>
+        <span
+          id="word"
+          aria-live="polite"
+        >
+          rapide
+        </span>
       </div>
 
-      <div class="input-row">
-        <input type="text" id="input" placeholder="Tape ici..." autocomplete="off" />
-        <button id="validateBtn">Valider →</button>
-      </div>
 
-      <div class="stats">
+      <!-- Typing form -->
+      <form
+        class="input-row"
+        id="typingForm"
+      >
+
+        <label
+          for="input"
+          class="sr-only"
+        >
+          Tape le mot affiché
+        </label>
+
+        <input
+          type="text"
+          id="input"
+          name="typingInput"
+          placeholder="Tape ici..."
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+          required
+        />
+
+        <button
+          type="submit"
+          id="validateBtn"
+        >
+          Valider →
+        </button>
+
+      </form>
+
+
+      <!-- Statistics -->
+      <div
+        class="stats"
+        aria-label="Statistiques"
+      >
+
         <div class="stat">
           <h2 id="score">0</h2>
           <p>BONS</p>
@@ -51,16 +158,38 @@
           <h2 id="precision">—</h2>
           <p>PRÉCISION</p>
         </div>
+
       </div>
 
-      <button class="share-btn" id="shareBtn">✉️ Partager mon score</button>
+
+      <!-- Share -->
+      <button
+        type="button"
+        class="share-btn"
+        id="shareBtn"
+      >
+        ✉️ Partager mon score
+      </button>
 
     </section>
 
+
+    <!-- Footer -->
     <footer>
-      Fait avec ❤️ par <span href="git">Fraterne Bahirwe</span>
+      <p>
+        Fait avec ❤️ par
+        <a
+          href="https://github.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Fraterne Bahirwe
+        </a>
+      </p>
     </footer>
+
   </main>
 
 </body>
 </html>
+```
