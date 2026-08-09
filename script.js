@@ -1,14 +1,14 @@
 const words = [
-  "rapide",
-  "clavier",
-  "code",
-  "javascript",
-  "ordinateur",
-  "développeur",
-  "projet",
-  "écran",
-  "fonction",
-  "variable"
+  "Rapide",
+  "Clavier",
+  "Code",
+  "Javascript",
+  "Ordinateur",
+  "Développeur",
+  "Projet",
+  "Ecran",
+  "Fonction",
+  "Variable"
 ];
 
 const phrases = [
